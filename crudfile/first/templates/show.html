@@ -1,0 +1,36 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Records</title>  
+</head>  
+<body>  
+<table align='center', style='margin-top: 10%;'>  
+    <thead>  
+    <tr>  
+        <th>Title</th>  
+        <th>Description</th>  
+        <th>Creation Date</th>
+        <th>Updation Date</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for n in note %}  
+    <tr>  
+        <td>{{ n.title }}</td>  
+        <td>{{ n.description }}</td>  
+        <td>{{ n.creation_date }}</td>  
+        <td>{{ n.updation_date }}</td>  
+        <td>  
+            <a href="/first/edit/{{n.id}}">Edit</a>  
+            <a href="/first/delete/{{n.id}}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/first/emp">Create</a></center>  
+</body>  
+</html>
