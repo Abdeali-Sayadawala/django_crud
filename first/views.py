@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
 from first.models import Note
 from first.forms import NoteForm
-from rest_framework import routers, serializers, viewsets
-from first.serializers import NoteSerializers
 
 # Create your views here.
 def read(request):
@@ -35,8 +33,4 @@ def destroy(request, id):
     note = Note.objects.get(id=id)
     note.delete()
     return redirect("/first/read")
-
-class NoteViewSet(viewsets.ModelViewSet):
-    queryset = Note.objects.all()
-    serializer_class = NoteSerializers
     

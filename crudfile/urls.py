@@ -16,15 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from first.models import Note
-from first.views import NoteViewSet
-from rest_framework import routers
-
-router = routers.DefaultRouter()
-router.register(r'api/note', NoteViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('first/', include('first.urls')),
-    path(r'', include(router.urls)),
-    path(r'api/', include('rest_framework.urls', namespace='rest_framework'))
+    path('', include('first.urls')),
 ]
