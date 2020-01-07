@@ -12,7 +12,7 @@ def create(request):
         form = NoteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("/first/read")
+            return redirect("/read")
     else:
         form = NoteForm()
     return render(request, 'form.html', {'form' : form})
@@ -26,11 +26,11 @@ def update(request, id):
     form = NoteForm(request.POST, instance=note)
     if form.is_valid():
         form.save()
-        return redirect("/first/read")
+        return redirect("/read")
     return render(request, "edit.html", {'note' : note})
 
 def destroy(request, id):
     note = Note.objects.get(id=id)
     note.delete()
-    return redirect("/first/read")
+    return redirect("/read")
     
